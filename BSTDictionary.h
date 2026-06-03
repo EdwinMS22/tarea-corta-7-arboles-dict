@@ -42,6 +42,9 @@ public:
 		Pair<K, V> p(key);
 		return tree->contains(p);
 	}
+	bool isEmpty() {
+		return tree->isEmpty();
+	}
 	void clear() {
 		tree->clear();
 	}
