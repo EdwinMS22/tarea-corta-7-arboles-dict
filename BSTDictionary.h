@@ -16,4 +16,8 @@ public:
 	~BSTDictionary() {
 		delete tree;
 	}
+	void insert(K key, V value) {
+		Pair<K, V> p(key, value);
+		tree->insert(p);
+	}
 };
