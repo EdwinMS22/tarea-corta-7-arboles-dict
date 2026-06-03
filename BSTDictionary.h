@@ -20,4 +20,9 @@ public:
 		Pair<K, V> p(key, value);
 		tree->insert(p);
 	}
+	V remove(K key) {
+		Pair<K, V> p(key);
+		p = tree->remove(p);
+		return p.value;
+	}
 };
