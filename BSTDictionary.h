@@ -30,4 +30,10 @@ public:
 		p = tree->find(p);
 		return p.value;
 	}
+	void setValue(K key, V value) {
+		Pair<K, V> p(key);
+		tree->remove(p);
+		p.value = value;
+		tree->insert(p);
+	}
 };
