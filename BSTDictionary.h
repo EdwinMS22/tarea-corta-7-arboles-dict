@@ -3,6 +3,8 @@
 #include "Dictionary.h"
 #include "BSTree.h"
 #include "Pair.h"
+#include "List.h"
+#include "DLinkedList.h"
 
 template <typename K, typename V>
 class BSTDictionary : public Dictionary<K, V> {
@@ -42,5 +44,13 @@ public:
 	}
 	void clear() {
 		tree->clear();
+	}
+	List<K>* getKeys() {
+		List<Pair<K, V>>* elements = tree->getElements();
+		List<K>* keys = new DLinkedList<K>();
+		for (elements->goToStart(); !elements->atEnd(); elements->next())
+			keys->append(elements->getElement().key);
+		delete elements;
+		return keys;
 	}
 };
