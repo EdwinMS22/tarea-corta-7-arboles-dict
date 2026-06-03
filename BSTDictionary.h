@@ -40,4 +40,7 @@ public:
 		Pair<K, V> p(key);
 		return tree->contains(p);
 	}
+	void clear() {
+		tree->clear();
+	}
 };
