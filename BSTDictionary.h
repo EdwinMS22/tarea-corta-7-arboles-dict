@@ -61,4 +61,7 @@ public:
 		delete elements;
 		return values;
 	}
+	int getSize() {
+		return tree->getSize();
+	}
 };
