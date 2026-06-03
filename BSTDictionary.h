@@ -36,4 +36,8 @@ public:
 		p.value = value;
 		tree->insert(p);
 	}
+	bool contains(K key) {
+		Pair<K, V> p(key);
+		return tree->contains(p);
+	}
 };
