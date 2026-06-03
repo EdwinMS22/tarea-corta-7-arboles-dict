@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="TareaArbolesDict.vcxproj" />
+  <Project Path="TareaArbolesDict.vcxproj" Id="4dc8b156-9c83-4b14-9c8b-164da9b054f5" />
 </Solution>
