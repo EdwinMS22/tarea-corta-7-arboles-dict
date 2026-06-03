@@ -67,4 +67,7 @@ public:
 	int getSize() {
 		return tree->getSize();
 	}
+	void print() {
+		tree->print();
+	}
 };
