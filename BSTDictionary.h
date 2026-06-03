@@ -67,6 +67,18 @@ public:
 	int getSize() {
 		return tree->getSize();
 	}
+	void update(Dictionary<K, V>* D) {
+		List<K>* keys = D->getKeys();
+		for (keys->goToStart(); !keys->atEnd(); keys->next()) {
+			K key = keys->getElement();
+			V value = D->getValue(key);
+			if (contains(key))
+				setValue(key, value);
+			else
+				insert(key, value);
+		}
+		delete keys;
+	}
 	void print() {
 		tree->print();
 	}
