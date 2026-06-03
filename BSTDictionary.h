@@ -53,4 +53,12 @@ public:
 		delete elements;
 		return keys;
 	}
+	List<V>* getValues() {
+		List<Pair<K, V>>* elements = tree->getElements();
+		List<V>* values = new DLinkedList<V>();
+		for (elements->goToStart(); !elements->atEnd(); elements->next())
+			values->append(elements->getElement().value);
+		delete elements;
+		return values;
+	}
 };
