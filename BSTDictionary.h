@@ -25,4 +25,9 @@ public:
 		p = tree->remove(p);
 		return p.value;
 	}
+	V getValue(K key) {
+		Pair<K, V> p(key);
+		p = tree->find(p);
+		return p.value;
+	}
 };
