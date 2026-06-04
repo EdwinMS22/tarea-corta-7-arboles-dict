@@ -167,6 +167,23 @@ int main() {
                 else
                     dict2->update(dict1);
             }
+            else if (option == 10) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                int count = readInt("How many elements? ");
+                List<int>* keys = new DLinkedList<int>();
+                List<string>* values = new DLinkedList<string>();
+                for (int i = 0; i < count; i++)
+                    keys->append(readInt("Key: "));
+                for (int i = 0; i < count; i++)
+                    values->append(readString("Value: "));
+                if (dictOption == 1)
+                    dict1->zip(keys, values);
+                else
+                    dict2->zip(keys, values);
+                delete keys;
+                delete values;
+            }
         }
         catch (const std::runtime_error& e) {
             cout << "\nOperation failed: " << e.what() << '\n';
