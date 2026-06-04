@@ -106,6 +106,13 @@ int main() {
                 int key = readInt("Key: ");
                 dictOption == 1 ? dict1->remove(key) : dict2->remove(key);
             }
+            else if (option == 3) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                int key = readInt("Key: ");
+                string value = dictOption == 1 ? dict1->getValue(key) : dict2->getValue(key);
+                cout << "\nValue associated with the key: " << value << '\n';
+            }
         }
         catch (const std::runtime_error& e) {
             cout << "\nOperation failed: " << e.what() << '\n';
