@@ -8,6 +8,7 @@ public:
 	Dictionary() {}
 	Dictionary(const Dictionary<K, V>&) = delete;
 	void operator=(const Dictionary<K, V>&) = delete;
+	virtual ~Dictionary() = default;
 	virtual void insert(K key, V value) = 0;
 	virtual V remove(K key) = 0;
 	virtual V getValue(K key) = 0;
@@ -22,4 +23,3 @@ public:
 	virtual void zip(List<K>* keys, List<V>* values) = 0;
 	virtual void print() = 0;
 };
-
