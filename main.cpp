@@ -159,6 +159,14 @@ int main() {
                 values->print();
                 delete values;
             }
+            else if (option == 9) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                if (dictOption == 1)
+                    dict1->update(dict2);
+                else
+                    dict2->update(dict1);
+            }
         }
         catch (const std::runtime_error& e) {
             cout << "\nOperation failed: " << e.what() << '\n';
