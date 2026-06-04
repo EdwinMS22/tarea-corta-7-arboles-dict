@@ -98,13 +98,19 @@ int main() {
                 dictOption = readIntInRange("Choose an option: ", 1, 2);
                 int key = readInt("Key: ");
                 string value = readString("Value: ");
-                dictOption == 1 ? dict1->insert(key, value) : dict2->insert(key, value);
+                if (dictOption == 1)
+                    dict1->insert(key, value);
+                else
+                    dict2->insert(key, value);
             }
             else if (option == 2) {
                 showDictSelectionMenu();
                 dictOption = readIntInRange("Choose an option: ", 1, 2);
                 int key = readInt("Key: ");
-                dictOption == 1 ? dict1->remove(key) : dict2->remove(key);
+                if (dictOption == 1)
+                    dict1->remove(key);
+                else
+                    dict2->remove(key);
             }
             else if (option == 3) {
                 showDictSelectionMenu();
@@ -112,6 +118,16 @@ int main() {
                 int key = readInt("Key: ");
                 string value = dictOption == 1 ? dict1->getValue(key) : dict2->getValue(key);
                 cout << "\nValue associated with the key: " << value << '\n';
+            }
+            else if (option == 4) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                int key = readInt("Key: ");
+                string value = readString("Value: ");
+                if (dictOption == 1)
+                    dict1->setValue(key, value);
+                else
+                    dict2->setValue(key, value);
             }
         }
         catch (const std::runtime_error& e) {
