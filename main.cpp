@@ -4,7 +4,16 @@
 // ############################################################
 
 #include <iostream>
+#include <string>
+#include "BSTDictionary.h"
+
+using std::cout;
+using std::string;
 
 int main() {
-    std::cout << "Hello World!\n";
+    Dictionary<int, string>* dict1 = new BSTDictionary<int, string>();
+    Dictionary<int, string>* dict2 = new BSTDictionary<int, string>();
+
+    delete dict1;
+    delete dict2;
 }
