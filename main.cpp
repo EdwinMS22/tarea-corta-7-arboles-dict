@@ -135,6 +135,14 @@ int main() {
                 bool found = (dictOption == 1) ? dict1->contains(key) : dict2->contains(key);
                 cout << (found ? "\nThe key is in the dictionary.\n" : "\nThe key is not in the dictionary.\n");
             }
+            else if (option == 6) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                if (dictOption == 1)
+                    dict1->clear();
+                else
+                    dict2->clear();
+            }
         }
         catch (const std::runtime_error& e) {
             cout << "\nOperation failed: " << e.what() << '\n';
