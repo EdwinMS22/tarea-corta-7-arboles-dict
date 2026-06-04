@@ -16,6 +16,21 @@ static void printDict(Dictionary<int, string>* dict) {
     cout << "}\n";
 }
 
+static void showMenu() {
+    cout << "\n\tOperations\n";
+    cout << "1. Insert\n";
+    cout << "2. Remove\n";
+    cout << "3. Get value\n";
+    cout << "4. Set value\n";
+    cout << "5. Contains\n";
+    cout << "6. Clear\n";
+    cout << "7. Get keys\n";
+    cout << "8. Get values\n";
+    cout << "9. Update\n";
+    cout << "10. Zip\n";
+    cout << "0. Exit\n";
+}
+
 int main() {
     Dictionary<int, string>* dict1 = new BSTDictionary<int, string>();
     Dictionary<int, string>* dict2 = new BSTDictionary<int, string>();
@@ -27,6 +42,9 @@ int main() {
         printDict(dict1);
         cout << "Dictionary 2:\n";
         printDict(dict2);
+
+        showMenu();
+
         option = 0;
     }
 
