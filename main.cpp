@@ -56,6 +56,25 @@ static int readIntInRange(const string& prompt, int min, int max) {
     }
 }
 
+static string readString(string prompt) {
+    cout << prompt;
+    string line;
+    std::getline(std::cin, line);
+    return line;
+}
+
+static void showDictSelectionMenu() {
+    cout << "\nChoose a dictionary for this operation:\n";
+    cout << "1. Dictionary 1\n";
+    cout << "2. Dictionary 2\n";
+}
+
+static void pressToContinue() {
+    cout << "\nPress ENTER to continue...";
+    string dummy;
+    std::getline(std::cin, dummy);
+}
+
 int main() {
     Dictionary<int, string>* dict1 = new BSTDictionary<int, string>();
     Dictionary<int, string>* dict2 = new BSTDictionary<int, string>();
@@ -70,6 +89,26 @@ int main() {
 
         showMenu();
         option = readIntInRange("Choose an option: ", 0, 10);
+
+        cout << '\n';
+        int dictOption{};
+        try {
+            if (option == 1) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                int key = readInt("Key: ");
+                string value = readString("Value: ");
+                if (dictOption == 1)
+                    dict1->insert(key, value);
+                else
+                    dict2->insert(key, value);
+            }
+        }
+        catch (const std::runtime_error& e) {
+            cout << "\nOperation failed: " << e.what() << '\n';
+        }
+        if (option != 0) pressToContinue();
+        cout << '\n';
     }
 
     delete dict1;
