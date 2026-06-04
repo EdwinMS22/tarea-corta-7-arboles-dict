@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include "Dictionary.h"
 #include "BSTree.h"
 #include "Pair.h"
@@ -78,6 +79,20 @@ public:
 				insert(key, value);
 		}
 		delete keys;
+	}
+	void zip(List<K>* keys, List<V>* values) {
+		int size = std::min(keys->getSize(), values->getSize());
+		keys->goToStart();
+		values->goToStart();
+		for (int i = 0; i < size; i++) {
+			K key = keys->getElement();
+			V value = values->getElement();
+			if (contains(key))
+				remove(key);
+			insert(key, value);
+			keys->next();
+			values->next();
+		}
 	}
 	void print() {
 		tree->print();
