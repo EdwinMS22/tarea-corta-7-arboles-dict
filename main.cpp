@@ -143,6 +143,14 @@ int main() {
                 else
                     dict2->clear();
             }
+            else if (option == 7) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                List<int>* keys = (dictOption == 1) ? dict1->getKeys() : dict2->getKeys();
+                cout << "\nKeys: ";
+                keys->print();
+                delete keys;
+            }
         }
         catch (const std::runtime_error& e) {
             cout << "\nOperation failed: " << e.what() << '\n';
