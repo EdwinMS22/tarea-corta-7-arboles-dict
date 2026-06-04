@@ -90,7 +90,6 @@ int main() {
         showMenu();
         option = readIntInRange("Choose an option: ", 0, 10);
 
-        cout << '\n';
         int dictOption{};
         try {
             if (option == 1) {
@@ -116,7 +115,7 @@ int main() {
                 showDictSelectionMenu();
                 dictOption = readIntInRange("Choose an option: ", 1, 2);
                 int key = readInt("Key: ");
-                string value = dictOption == 1 ? dict1->getValue(key) : dict2->getValue(key);
+                string value = (dictOption == 1) ? dict1->getValue(key) : dict2->getValue(key);
                 cout << "\nValue associated with the key: " << value << '\n';
             }
             else if (option == 4) {
@@ -128,6 +127,13 @@ int main() {
                     dict1->setValue(key, value);
                 else
                     dict2->setValue(key, value);
+            }
+            else if (option == 5) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                int key = readInt("Key: ");
+                bool found = (dictOption == 1) ? dict1->contains(key) : dict2->contains(key);
+                cout << (found ? "\nThe key is in the dictionary.\n" : "\nThe key is not in the dictionary.\n");
             }
         }
         catch (const std::runtime_error& e) {
