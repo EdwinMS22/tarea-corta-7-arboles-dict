@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "BSTDictionary.h"
 
 using std::cout;
@@ -31,6 +32,30 @@ static void showMenu() {
     cout << "0. Exit\n";
 }
 
+static int readInt(const string& prompt) {
+    while (true) {
+        cout << prompt;
+        string line;
+        std::getline(std::cin, line);
+
+        std::istringstream iss(line);
+        int value{};
+        if ((iss >> value) && (iss >> std::ws).eof())
+            return value;
+        cout << "Not a valid integer. Try again.\n";
+    }
+}
+
+static int readIntInRange(const string& prompt, int min, int max) {
+    while (true) {
+        int value = readInt(prompt);
+
+        if (value >= min && value <= max)
+            return value;
+        cout << "Integer must be between " << min << " and " << max << ". Try again.\n";
+    }
+}
+
 int main() {
     Dictionary<int, string>* dict1 = new BSTDictionary<int, string>();
     Dictionary<int, string>* dict2 = new BSTDictionary<int, string>();
@@ -44,8 +69,7 @@ int main() {
         printDict(dict2);
 
         showMenu();
-
-        option = 0;
+        option = readIntInRange("Choose an option: ", 0, 10);
     }
 
     delete dict1;
