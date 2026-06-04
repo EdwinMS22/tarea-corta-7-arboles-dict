@@ -151,6 +151,14 @@ int main() {
                 keys->print();
                 delete keys;
             }
+            else if (option == 8) {
+                showDictSelectionMenu();
+                dictOption = readIntInRange("Choose an option: ", 1, 2);
+                List<string>* values = (dictOption == 1) ? dict1->getValues() : dict2->getValues();
+                cout << "\nValues: ";
+                values->print();
+                delete values;
+            }
         }
         catch (const std::runtime_error& e) {
             cout << "\nOperation failed: " << e.what() << '\n';
